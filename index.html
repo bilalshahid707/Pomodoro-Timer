@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <title>Pomodoro Timer</title>
+</head>
+<body>
+    <div class="container flex">
+        <div class="status flex">
+            <p class="status-text active-status">Work</p>
+            <p class="status-text">Short Break</p>
+            <p class="status-text">Long Break</p>
+        </div>
+        <div class="timer flex">
+            <div class="minutes panel flex"><p class="minutes-count panel-text"></p></div>
+            <span>:</span>
+            <div class="seconds panel flex"><p class="seconds-count panel-text"></p></div>
+        </div>
+        <div class="controls flex">
+            <button class="start-btn btn"><ion-icon name="play-outline" class="icon flex"></ion-icon></button>
+            <button class="stop-btn btn"><ion-icon name="pause-circle-outline" class="icon flex"></ion-icon></button>
+            <button class="reset-btn btn"><ion-icon name="refresh-outline" class="icon flex" ></ion-icon></button>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
