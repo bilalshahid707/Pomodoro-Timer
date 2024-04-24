@@ -11,7 +11,7 @@ let intervalStopped=false;
 let shortBreakTimer = 5;
 let longBreakTimer = 20;
 let startingMinutes = 25;
-let startingSeconds = 60;
+let startingSeconds = 59;
 
 
 updateTimerDisplay();
@@ -21,12 +21,12 @@ function pomodoro() {
     intervalStopped=false
   } else {
     startingMinutes--;
-    startingSeconds--;
     timerInterval = setInterval(startTimer, 1000);
   }
 }
 
 function startTimer() {
+  updateTimerDisplay()
   startButton.disabled = true;
   // updating display when minutes or seconds are <10
   minutes.innerHTML =
@@ -36,9 +36,9 @@ function startTimer() {
 
   startingSeconds--;
   if (startingSeconds === 0) {
-    startingSeconds = 60;
-    seconds.innerHTML="00";
     startingMinutes--;
+    seconds.innerHTML="00";
+    startingSeconds = 59;
     if (startingMinutes === -1) {
       startButton.disabled = false;
       clearInterval(timerInterval);
@@ -49,6 +49,8 @@ function startTimer() {
       } else {
         work();
       }
+    } else {
+      updateTimerDisplay();
     }
   }
 }
@@ -114,3 +116,16 @@ function workStatusAnimation(workState) {
 startButton.addEventListener("click", pomodoro);
 resetButton.addEventListener("click", reset);
 stopButton.addEventListener("click", stopTimer);
+
+function adjustFontSize() {
+  var viewportWidth = window.innerWidth;
+  if (viewportWidth < 260) {
+    var currentFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    var newFontSize = currentFontSize - (currentFontSize * 0.1); // Decrease by 0.1%
+    document.documentElement.style.fontSize = newFontSize + "%";
+    requestAnimationFrame(adjustFontSize); // Call adjustFontSize again on the next animation frame
+  }
+}
+
+// Initial adjustment
+adjustFontSize();
