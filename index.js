@@ -117,15 +117,4 @@ startButton.addEventListener("click", pomodoro);
 resetButton.addEventListener("click", reset);
 stopButton.addEventListener("click", stopTimer);
 
-function adjustFontSize() {
-  var viewportWidth = window.innerWidth;
-  if (viewportWidth < 260) {
-    var currentFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-    var newFontSize = currentFontSize - (currentFontSize * 0.1); // Decrease by 0.1%
-    document.documentElement.style.fontSize = newFontSize + "%";
-    requestAnimationFrame(adjustFontSize); // Call adjustFontSize again on the next animation frame
-  }
-}
 
-// Initial adjustment
-adjustFontSize();
