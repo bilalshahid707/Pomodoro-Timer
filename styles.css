@@ -113,16 +113,27 @@ body {
 }
 
 /* *************************RESPONSIVE******************************* */
-@media (max-width:426px) {
+@media (max-width:530px) {
     html {
         font-size: 43.75%;
     }
 }
-@media (max-width:321px) {
+@media (max-width:395px) {
     html {
-        font-size: 37.5%;
+        font-size:31.25%;
     }
-    .timer {
-        flex-direction: column;
-    } 
+    .container{
+      width: calc(100% - 3rem);
+    }
+    .timer,
+    .controls{
+      width: 100%;
+    }
+    .status{
+      width: 80%;
+    }
+    .panel {
+      height: 18rem;
+      width: 18rem;
+    }
 }
