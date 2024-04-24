@@ -37,6 +37,7 @@ function startTimer() {
   startingSeconds--;
   if (startingSeconds === 0) {
     startingSeconds = 60;
+    seconds.innerHTML="00";
     startingMinutes--;
     if (startingMinutes === -1) {
       startButton.disabled = false;
